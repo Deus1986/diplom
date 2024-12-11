@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "diplom"
+version = "0.1.0"
+description = ""
+authors = ["Vladimir Krinitsyn <Premio1896@rambler.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selene = "2.0.0rc2"
+webdriver-manager = "4.0.2"
+pytest = ">=8.3.3,<8.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
