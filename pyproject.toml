@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-selene = "2.0.0rc2"
+selene = "2.0.0rc8"
 webdriver-manager = "4.0.2"
 pytest = ">=8.3.3,<8.4.0"
 requests = "2.32.3"

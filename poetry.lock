@@ -431,20 +431,19 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "selene"
-version = "2.0.0rc2"
+version = "2.0.0rc8"
 description = "User-oriented browser tests in Python (Selenide port)"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "selene-2.0.0rc2-py3-none-any.whl", hash = "sha256:5258550de2a1cbbcadf5feb19bab5b084a4cb1affa551f149b6077499f0d15a6"},
-    {file = "selene-2.0.0rc2.tar.gz", hash = "sha256:d4ae8f2ac136834f04bf12d93c10c0da16feafea1d4247c8a9526b279ff860b5"},
+    {file = "selene-2.0.0rc8-py3-none-any.whl", hash = "sha256:e8ae7e495fecd26016b78d48849092f40649e0ffd5c37c5a08180170b60b6135"},
+    {file = "selene-2.0.0rc8.tar.gz", hash = "sha256:e8e171b3d8ff006d30ce9031d99a083378c4f7f21b806365f24dfc84e07b1579"},
 ]
 
 [package.dependencies]
 future = "*"
-selenium = ">=4.4.3"
-typing-extensions = "4.3.0"
-webdriver-manager = ">=3.8.5"
+selenium = ">=4.12.0"
+typing-extensions = ">=4.9.0"
 
 [[package]]
 name = "selenium"
@@ -521,13 +520,13 @@ wsproto = ">=0.14"
 
 [[package]]
 name = "typing-extensions"
-version = "4.3.0"
-description = "Backported and Experimental Type Hints for Python 3.7+"
+version = "4.12.2"
+description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
-    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
+    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
+    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
 
 [[package]]
@@ -583,4 +582,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "906a03dfb9c21fe20cb509750311e72ba2af3db0cf3e889ee344fa11220f9ebc"
+content-hash = "90c5fb9c90c05d254362e34b0012471ba98edc3b822a53d5a07399cf34c7a7fc"
