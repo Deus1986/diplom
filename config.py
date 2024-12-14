@@ -1,15 +1,13 @@
 from pathlib import Path
 from typing import Literal
 
-from appium import webdriver
-from appium.options.android import UiAutomator2Options
 from pydantic_settings import BaseSettings
-from selene import browser
 
 import tests
 
 
 class Config(BaseSettings):
+    api_base_url: str = 'https://spb.shop.megafon.ru/'
     remote_url: str = ''
     browser_platform: Literal['android', 'ios'] = 'android'
     platformVersion: str = ''
@@ -22,8 +20,8 @@ class Config(BaseSettings):
     context: str = 'local'
 
 
-# if Config().context == 'local':
-#     config = Config(_env_file=Path(tests.__file__).parent.parent.joinpath('.env.local_emulator').absolute())
+if Config().context == 'local':
+    config = Config(_env_file=Path(tests.__file__).parent.parent.joinpath('.env.local_emulator').absolute())
 #
 # if Config().context == 'bstack':
 #     config = Config(_env_file=(Path(tests.__file__).parent.parent.joinpath('.env').absolute(),

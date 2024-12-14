@@ -1,24 +1,22 @@
-import pytest
-from selene import browser, be, command, have
+import allure
+from selene import browser, have
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 
 
-class MainPage:
+class SmartphonePage:
     def __init__(self):
         pass
 
-    def search_results_should_have_iphone_16(self, value):
+    @allure.step('Search results should have iphone 16')
+    def search_results_should_have_text(self, value):
         elements = browser.all('.b-good__title-link')
         for i in range(len(elements)):
-            elements[i].should(have.text("iPhone 16"))
-    # def fill_permanent_address(self, value):
-    #     browser.element('//textarea[@id="permanentAddress"]').type(value)
-    #
-    # def scroll_to_element(self):
-    #     browser.element('#permanentAddress').perform(command.js.scroll_into_view)
-    #
-    # def click_submit(self):
-    #     browser.element('#submit').click()
-    #
-    # def should_have_registered(self, user_data, user_enum):
-    #     for i in range(len(user_data)):
-    #         browser.element(f"#output > div.border > #{user_enum(i).name}").should(have.text(user_data[f'{i}']))
+            elements[i].should(have.text(value))
+
+    @allure.step('Choose filter')
+    def choose_filter(self, filter_name):
+        ActionChains(browser.driver).scroll_to_element(
+            browser.driver.find_element(By.XPATH, f'//span[text()="{filter_name}"]')).perform()
+        browser.element(f'//span[text()="{filter_name}"]').click()
+        browser.element('//span[text()="Применить"]').click()

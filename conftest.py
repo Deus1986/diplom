@@ -14,8 +14,9 @@ def browser_management():
     browser.config.base_url = "https://spb.shop.megafon.ru/"
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ['enable-automation'])
-    options.page_load_strategy = "eager"
+    # options.page_load_strategy = "eager"
     # options.add_argument('--headless')
+    browser.config.timeout = 8
     browser.config.driver_options = options
     browser.config.driver.maximize_window()
 
