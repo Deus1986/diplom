@@ -44,6 +44,11 @@ def browser_management():
 
         login = os.getenv("LOGIN")
         password = os.getenv("PASSWORD")
+        driver = webdriver.Remote(
+            command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+            options=options)
+
+        browser.config.driver = driver
 
     yield
     browser.quit()
