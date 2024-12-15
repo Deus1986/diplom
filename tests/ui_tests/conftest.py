@@ -21,17 +21,17 @@ def browser_management():
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ['enable-automation'])
         # options.page_load_strategy = "eager"
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         browser.config.timeout = 8
         browser.config.driver_options = options
-        # browser.config.driver.maximize_window()
+        browser.config.driver.maximize_window()
 
     if config.web_context == 'remote':
         browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = Options()
         capabilities = {
             "browserName": "chrome",
-            "browserVersion": '100',
+            "browserVersion": '122',
             "selenoid:options": {
                 "enableVNC": True,
                 "enableVideo": True
