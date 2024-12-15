@@ -42,10 +42,9 @@ def browser_management():
         options.page_load_strategy = "eager"
         options.add_argument("window-size=1920,1080")
 
-        login = os.getenv("LOGIN")
-        password = os.getenv("PASSWORD")
         driver = webdriver.Remote(
-            command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+            command_executor=f"https://{config.login_selenoid}:{config.password_selenoid}"
+                             f"@selenoid.autotests.cloud/wd/hub",
             options=options)
 
         browser.config.driver = driver
