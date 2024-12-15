@@ -38,7 +38,6 @@ def run_localy_android():
         'appWaitActivity': config.appWaitActivity,
         'app': str(app)
     })
-    print(config.remote_url)
     browser.config.timeout = config.timeout
     browser.config.driver = webdriver.Remote(config.remote_url, options=options)
 

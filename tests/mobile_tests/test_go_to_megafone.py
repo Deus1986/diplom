@@ -1,7 +1,7 @@
 import pytest
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have
+from selene import browser, have, command
 
 from config import config
 
@@ -16,13 +16,28 @@ def test_go_to_megafone():
             have.text('Добро пожаловать в Личный кабинет МегаФона'))
 
     with step('Click go to megafone'):
-        browser.element((AppiumBy.XPATH,
-                         '//android.view.View[@resource-id="root"]/android.view.View/android.view.View/'
-                         'android.view.View/android.view.View[3]')).click()
+        if config.context == "bstack":
+            browser.element((AppiumBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/'
+                                             'android.widget.FrameLayout/android.widget.LinearLayout/android.widget.'
+                                             'FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/'
+                                             'android.widget.FrameLayout[2]/android.webkit.WebView/android.webkit.'
+                                             'WebView/android.view.View/android.view.View/android.view.View/android.'
+                                             'view.View/android.view.View/android.view.View[6]')).click()
+        else:
+            browser.element((AppiumBy.XPATH,
+                             '//android.view.View[@resource-id="root"]/android.view.View/android.view.View/'
+                             'android.view.View/android.view.View[3]')).click()
 
-    with step('Choose plastic sim card'):
-        browser.element((AppiumBy.XPATH, '//android.view.View[@content-desc="SIM-карта Пластиковая"]')).click()
-
-    with step('Page should have text choose how to activate the tariff'):
-        browser.element((AppiumBy.XPATH, '//android.view.View[@text="Выберите, как подключить тариф"]')).should(
-            have.text('Выберите, как подключить тариф'))
+    with (step('Choose plastic sim card')):
+        if config.context == "bstack":
+            browser.element((AppiumBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/'
+                                             'android.widget.FrameLayout/android.widget.LinearLayout/android.widget.'
+                                             'FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/'
+                                             'android.widget.FrameLayout[2]/android.webkit.WebView/android.webkit.'
+                                             'WebView/android.view.View/android.view.View[2]/android.view.View/'
+                                             'android.app.Dialog/android.view.View/android.view.View/android.view.'
+                                             'View[2]/android.view.View[1]/android.view.View/android.widget.T'
+                                             'extView[1]')).should(have.text('SIM-карта'))
+        else:
+            browser.element((AppiumBy.XPATH, '//android.view.View[@text="SIM-карта"]')
+                            ).should(have.text('SIM-карта'))
