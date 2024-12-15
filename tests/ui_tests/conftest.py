@@ -31,7 +31,7 @@ def browser_management():
         options = Options()
         capabilities = {
             "browserName": "chrome",
-            "browserVersion": 100,
+            "browserVersion": '100',
             "selenoid:options": {
                 "enableVNC": True,
                 "enableVideo": True
