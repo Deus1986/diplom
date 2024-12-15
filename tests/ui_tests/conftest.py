@@ -27,7 +27,7 @@ def browser_management():
         # browser.config.driver.maximize_window()
 
     if config.web_context == 'remote':
-        browser.config.base_url = "https://dcloud.tech/"
+        browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = Options()
         capabilities = {
             "browserName": "chrome",
@@ -39,7 +39,6 @@ def browser_management():
         }
 
         options.capabilities.update(capabilities)
-        options.page_load_strategy = "eager"
         options.add_argument("window-size=1920,1080")
 
         driver = webdriver.Remote(
