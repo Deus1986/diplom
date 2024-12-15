@@ -18,6 +18,8 @@ class Config(BaseSettings):
     timeout: float = 8.0
     user_name: str = ''
     access_key: str = ''
+    login_selenoid: str = ''
+    password_selenoid: str = ''
     deviceName: str = ''
     appWaitActivity: str = ''
     app: str = ''
