@@ -33,6 +33,9 @@ if Config().context == 'local':
 if Config().context == 'bstack':
     config = Config(_env_file=(resource_path('.env'), resource_path('.env.bstack')))
 
+if Config().web_context == 'remote':
+    config = Config(_env_file=(resource_path('.env')))
+
 
 def run_localy_android():
     options = UiAutomator2Options()
