@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {}
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "branchId": {
+          "type": "integer"
+        },
+        "cityId": {
+          "type": "integer"
+        },
+        "contactPhone": {
+          "type": "string"
+        },
+        "contactPhoneCC": {
+          "type": "string"
+        },
+        "defaultPaymentId": {
+          "type": "integer"
+        },
+        "defaultSectionId": {
+          "type": "integer"
+        },
+        "domainPrefix": {
+          "type": "string"
+        },
+        "enabledServices": {
+          "type": "array",
+          "items": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ]
+        },
+        "eshopId": {
+          "type": "integer"
+        },
+        "expressDelivery": {
+          "type": "object",
+          "properties": {
+            "availability": {
+              "type": "boolean"
+            },
+            "deliveryExpress": {
+              "type": "boolean"
+            },
+            "expressTime": {
+              "type": "object",
+              "properties": {
+                "startTime": {
+                  "type": "null"
+                },
+                "stopTime": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "startTime",
+                "stopTime"
+              ]
+            }
+          },
+          "required": [
+            "availability",
+            "deliveryExpress",
+            "expressTime"
+          ]
+        },
+        "localTimeZone": {
+          "type": "string"
+        },
+        "managerEmail": {
+          "type": "string"
+        },
+        "regionId": {
+          "type": "integer"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "sectionWorkingTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "branchId",
+        "cityId",
+        "contactPhone",
+        "contactPhoneCC",
+        "defaultPaymentId",
+        "defaultSectionId",
+        "domainPrefix",
+        "enabledServices",
+        "eshopId",
+        "expressDelivery",
+        "localTimeZone",
+        "managerEmail",
+        "regionId",
+        "regionName",
+        "sectionWorkingTime"
+      ]
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "errors",
+    "payload",
+    "success"
+  ]
+}

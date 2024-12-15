@@ -1,0 +1,595 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {}
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "type": "object",
+          "properties": {
+            "addressId": {
+              "type": "integer"
+            },
+            "addressRequired": {
+              "type": "integer"
+            },
+            "basket": {
+              "type": "object",
+              "properties": {
+                "delivery": {
+                  "type": "null"
+                },
+                "giftBombs": {
+                  "type": "array",
+                  "items": {}
+                },
+                "items": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "addSource": {
+                          "type": "string"
+                        },
+                        "admitadCode": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "available": {
+                          "type": "boolean"
+                        },
+                        "baseTypeId": {
+                          "type": "integer"
+                        },
+                        "brandName": {
+                          "type": "string"
+                        },
+                        "bundleType": {
+                          "type": "null"
+                        },
+                        "creditAvailable": {
+                          "type": "boolean"
+                        },
+                        "creditGoodSetType": {
+                          "type": "null"
+                        },
+                        "deliveries": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "gifts": {
+                          "type": "null"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "identityForm": {
+                          "type": "null"
+                        },
+                        "infoCardTypeId": {
+                          "type": "integer"
+                        },
+                        "insurancesProperty": {
+                          "type": "object",
+                          "properties": {
+                            "isApplicable": {
+                              "type": "boolean"
+                            },
+                            "items": {
+                              "type": "array",
+                              "items": {}
+                            }
+                          },
+                          "required": [
+                            "isApplicable",
+                            "items"
+                          ]
+                        },
+                        "isConnectionBundle": {
+                          "type": "boolean"
+                        },
+                        "isDigital": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "position": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "discountSum": {
+                              "type": "integer"
+                            },
+                            "discountValue": {
+                              "type": "null"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "discountSum",
+                            "discountValue",
+                            "value"
+                          ]
+                        },
+                        "recommendGoodSetId": {
+                          "type": "integer"
+                        },
+                        "rtimParams": {
+                          "type": "null"
+                        },
+                        "services": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "integer"
+                            }
+                          ]
+                        },
+                        "shortage": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "integer"
+                        },
+                        "statusSSM": {
+                          "type": "integer"
+                        },
+                        "switchers": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "tariffProperty": {
+                          "type": "null"
+                        },
+                        "typeId": {
+                          "type": "integer"
+                        },
+                        "unknownEmbeddedItems": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "cart": {
+                          "type": "object",
+                          "properties": {
+                            "goodId": {
+                              "type": "integer"
+                            },
+                            "goodName": {
+                              "type": "string"
+                            },
+                            "goodStatus": {
+                              "type": "integer"
+                            },
+                            "goodBrand": {
+                              "type": "null"
+                            },
+                            "masterId": {
+                              "type": "integer"
+                            },
+                            "baseTypeId": {
+                              "type": "integer"
+                            },
+                            "typeId": {
+                              "type": "integer"
+                            },
+                            "isConnection": {
+                              "type": "boolean"
+                            },
+                            "categoryName": {
+                              "type": "string"
+                            },
+                            "delivery": {
+                              "type": "boolean"
+                            },
+                            "pickup": {
+                              "type": "boolean"
+                            },
+                            "pickupDeliveryDate": {
+                              "type": "string"
+                            },
+                            "href": {
+                              "type": "string"
+                            },
+                            "hrefDefaultImage": {
+                              "type": "string"
+                            },
+                            "codeSAP": {
+                              "type": "string"
+                            },
+                            "price": {
+                              "type": "integer"
+                            },
+                            "oldPrice": {
+                              "type": "integer"
+                            },
+                            "discountCoupon": {
+                              "type": "null"
+                            },
+                            "mainGssId": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "alias": {
+                                  "type": "string"
+                                },
+                                "enabled": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "alias",
+                                "enabled"
+                              ]
+                            },
+                            "ownGssId": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "alias": {
+                                  "type": "string"
+                                },
+                                "enabled": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "alias",
+                                "enabled"
+                              ]
+                            },
+                            "instalment": {
+                              "type": "object",
+                              "properties": {
+                                "isAllowed": {
+                                  "type": "boolean"
+                                },
+                                "minPayment": {
+                                  "type": "integer"
+                                },
+                                "period": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "isAllowed",
+                                "minPayment",
+                                "period"
+                              ]
+                            },
+                            "beacons": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "tariffGood": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "goodId",
+                            "goodName",
+                            "goodStatus",
+                            "goodBrand",
+                            "masterId",
+                            "baseTypeId",
+                            "typeId",
+                            "isConnection",
+                            "categoryName",
+                            "delivery",
+                            "pickup",
+                            "pickupDeliveryDate",
+                            "href",
+                            "hrefDefaultImage",
+                            "codeSAP",
+                            "price",
+                            "oldPrice",
+                            "discountCoupon",
+                            "mainGssId",
+                            "ownGssId",
+                            "instalment",
+                            "beacons",
+                            "tariffGood"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "addSource",
+                        "admitadCode",
+                        "amount",
+                        "available",
+                        "baseTypeId",
+                        "brandName",
+                        "bundleType",
+                        "creditAvailable",
+                        "creditGoodSetType",
+                        "deliveries",
+                        "gifts",
+                        "id",
+                        "identityForm",
+                        "infoCardTypeId",
+                        "insurancesProperty",
+                        "isConnectionBundle",
+                        "isDigital",
+                        "name",
+                        "position",
+                        "price",
+                        "recommendGoodSetId",
+                        "rtimParams",
+                        "services",
+                        "shortage",
+                        "status",
+                        "statusSSM",
+                        "switchers",
+                        "tariffProperty",
+                        "typeId",
+                        "unknownEmbeddedItems",
+                        "cart"
+                      ]
+                    }
+                  ]
+                },
+                "promoSwitchers": {
+                  "type": "array",
+                  "items": {}
+                },
+                "rtim": {
+                  "type": "null"
+                },
+                "total": {
+                  "type": "object",
+                  "properties": {
+                    "creditSum": {
+                      "type": "integer"
+                    },
+                    "deliverySum": {
+                      "type": "integer"
+                    },
+                    "discountPriceSum": {
+                      "type": "integer"
+                    },
+                    "discountSum": {
+                      "type": "integer"
+                    },
+                    "priceSum": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "creditSum",
+                    "deliverySum",
+                    "discountPriceSum",
+                    "discountSum",
+                    "priceSum"
+                  ]
+                }
+              },
+              "required": [
+                "delivery",
+                "giftBombs",
+                "items",
+                "promoSwitchers",
+                "rtim",
+                "total"
+              ]
+            },
+            "branchId": {
+              "type": "integer"
+            },
+            "clientId": {
+              "type": "integer"
+            },
+            "codename": {
+              "type": "string"
+            },
+            "contactInfo": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "fullName": {
+                  "type": "string"
+                },
+                "orderDetails": {
+                  "type": "string"
+                },
+                "smsPhoneNumber": {
+                  "type": "string"
+                },
+                "subscribe": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "email",
+                "fullName",
+                "orderDetails",
+                "smsPhoneNumber",
+                "subscribe"
+              ]
+            },
+            "coupons": {
+              "type": "array",
+              "items": {}
+            },
+            "creditProgramId": {
+              "type": "integer"
+            },
+            "creditProgramTerm": {
+              "type": "null"
+            },
+            "creditSource": {
+              "type": "null"
+            },
+            "creditType": {
+              "type": "null"
+            },
+            "deliveries": {
+              "type": "array",
+              "items": {}
+            },
+            "deliveryId": {
+              "type": "integer"
+            },
+            "deliverySectionId": {
+              "type": "integer"
+            },
+            "deliverySlotRequired": {
+              "type": "integer"
+            },
+            "forms": {
+              "type": "array",
+              "items": {}
+            },
+            "impreciseGifts": {
+              "type": "array",
+              "items": {}
+            },
+            "orderId": {
+              "type": "integer"
+            },
+            "originalTotalPrice": {
+              "type": "object",
+              "properties": {
+                "creditSum": {
+                  "type": "integer"
+                },
+                "deliverySum": {
+                  "type": "integer"
+                },
+                "discountPriceSum": {
+                  "type": "integer"
+                },
+                "discountSum": {
+                  "type": "integer"
+                },
+                "priceSum": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "creditSum",
+                "deliverySum",
+                "discountPriceSum",
+                "discountSum",
+                "priceSum"
+              ]
+            },
+            "paymentId": {
+              "type": "integer"
+            },
+            "payments": {
+              "type": "array",
+              "items": {}
+            },
+            "requisiteId": {
+              "type": "integer"
+            },
+            "requisiteRequired": {
+              "type": "integer"
+            },
+            "showCaseId": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "addressId",
+            "addressRequired",
+            "basket",
+            "branchId",
+            "clientId",
+            "codename",
+            "contactInfo",
+            "coupons",
+            "creditProgramId",
+            "creditProgramTerm",
+            "creditSource",
+            "creditType",
+            "deliveries",
+            "deliveryId",
+            "deliverySectionId",
+            "deliverySlotRequired",
+            "forms",
+            "impreciseGifts",
+            "orderId",
+            "originalTotalPrice",
+            "paymentId",
+            "payments",
+            "requisiteId",
+            "requisiteRequired",
+            "showCaseId",
+            "status"
+          ]
+        }
+      },
+      "required": [
+        "order"
+      ]
+    },
+    "success": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "errors",
+    "payload",
+    "success"
+  ]
+}

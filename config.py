@@ -7,7 +7,8 @@ import tests
 
 
 class Config(BaseSettings):
-    api_base_url: str = 'https://spb.shop.megafon.ru/'
+    api_base_url_spb_shop: str = 'https://spb.shop.megafon.ru/'
+    api_base_url_api_shop: str = 'https://api.shop.megafon.ru/'
     remote_url: str = ''
     browser_platform: Literal['android', 'ios'] = 'android'
     platformVersion: str = ''

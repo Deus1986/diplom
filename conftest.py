@@ -9,7 +9,7 @@ def set_browser_window_size():
     browser.config.window_width = 900
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope='function')
 def browser_management():
     browser.config.base_url = "https://spb.shop.megafon.ru/"
     options = webdriver.ChromeOptions()

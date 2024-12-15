@@ -1,15 +1,22 @@
-import allure
+import json
+
+from jsonschema.validators import validate
 
 from data.common_data import st_petersburg_store
+from data.resources import resource_path
 from tests.api_tests.api_helper.requests import *
 
 
 def test_storelocator():
-    response_get_info_about_storage = get_info_about_storage(st_petersburg_store.branch_id)
-    response_json = response_get_info_about_storage.json()
+    response = get_info_about_storage(st_petersburg_store.branch_id)
+    response_json = response.json()
 
     with allure.step("Response status code is 200"):
-        assert response_get_info_about_storage.status_code == 200
+        assert response.status_code == 200
+
+    with allure.step("Validate response schema"):
+        with open(resource_path("data/schemas/storelocator.json")) as file:
+            validate(response.json(), schema=json.loads(file.read()))
 
     with allure.step(f"Response should have branch id {st_petersburg_store.branch_id}"):
         assert response_json['payload']['branchId'] == st_petersburg_store.branch_id

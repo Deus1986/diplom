@@ -1,6 +1,9 @@
-import allure
+import json
+
+from jsonschema.validators import validate
 
 from data.common_data import tablet_samsung, st_petersburg_store
+from data.resources import resource_path
 from tests.api_tests.api_helper.requests import *
 
 
@@ -13,6 +16,13 @@ def test_update_quantity_of_product():
     response = change_quantity_of_product(cookie, order_id, client_id, st_petersburg_store.city_id,
                                           tablet_samsung.amount_2)
     response_json = response.json()
+
+    with allure.step("Response status code is 200"):
+        assert response.status_code == 200
+
+    with allure.step("Validate response schema"):
+        with open(resource_path("data/schemas/add_product_to_cart.json")) as file:
+            validate(response.json(), schema=json.loads(file.read()))
 
     with allure.step(f"Response should have brand name {tablet_samsung.brand}"):
         assert response_json['payload']['order']['basket']['items'][0]['brandName'] == tablet_samsung.brand

@@ -1,6 +1,10 @@
+import json
+
 import allure
+from jsonschema.validators import validate
 
 from data.common_data import tablet_samsung, st_petersburg_store
+from data.resources import resource_path
 from tests.api_tests.api_helper.requests import add_product_to_cart, delete_order
 
 
@@ -12,6 +16,10 @@ def test_delete_order():
 
     response = delete_order(cookie, order_id, st_petersburg_store.city_id, client_id)
     response_json = response.json()
+
+    with allure.step("Validate response schema"):
+        with open(resource_path("data/schemas/add_product_to_cart.json")) as file:
+            validate(response.json(), schema=json.loads(file.read()))
 
     with allure.step("Response status code is 200"):
         assert response.status_code == 200
@@ -27,4 +35,3 @@ def test_delete_order():
 
     with allure.step(f"Response should have total sum 0"):
         assert response_json['payload']['order']['originalTotalPrice']['priceSum'] == 0
-
