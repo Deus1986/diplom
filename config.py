@@ -22,6 +22,7 @@ class Config(BaseSettings):
     appWaitActivity: str = ''
     app: str = ''
     context: str = 'bstack'
+    web_context: Literal['local', 'remote'] = 'remote'
 
 
 if Config().context == 'local':
