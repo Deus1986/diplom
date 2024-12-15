@@ -1,9 +1,12 @@
 from pathlib import Path
 from typing import Literal
 
+from appium import webdriver
+from appium.options.android import UiAutomator2Options
 from pydantic_settings import BaseSettings
+from selene import browser
 
-import tests
+from data.resources import resource_path
 
 
 class Config(BaseSettings):
@@ -12,51 +15,49 @@ class Config(BaseSettings):
     remote_url: str = ''
     browser_platform: Literal['android', 'ios'] = 'android'
     platformVersion: str = ''
-    timeout: float = 4.0
+    timeout: float = 8.0
     user_name: str = ''
     access_key: str = ''
     deviceName: str = ''
     appWaitActivity: str = ''
     app: str = ''
-    context: str = 'local'
+    context: str = 'bstack'
 
 
 if Config().context == 'local':
-    config = Config(_env_file=Path(tests.__file__).parent.parent.joinpath('.env.local_emulator').absolute())
-#
-# if Config().context == 'bstack':
-#     config = Config(_env_file=(Path(tests.__file__).parent.parent.joinpath('.env').absolute(),
-#                                Path(tests.__file__).parent.parent.joinpath('.env.bstack').absolute()))
-#
-#
-# def run_localy_android():
-#     options = UiAutomator2Options()
-#     app = str(Path(tests.__file__).parent.parent.joinpath(config.app).absolute())
-#     options.load_capabilities({
-#         'appWaitActivity': config.appWaitActivity,
-#         'app': app
-#     })
-#     browser.config.timeout = config.timeout
-#     browser.config.driver = webdriver.Remote(config.remote_url, options=options)
-#
-#
-# def run_bstack_android():
-#     options = UiAutomator2Options()
-#     options.load_capabilities({
-#         'appWaitActivity': config.appWaitActivity,
-#         'app': config.app,
-#         "deviceName": config.deviceName,
-#         "platformVersion": config.platformVersion,
-#         'bstack:options': {
-#             "projectName": "First Python project",
-#             "buildName": "browserstack-build-1",
-#             "sessionName": "BStack first_test",
-#
-#             # Set your access credentials
-#             "userName": config.user_name,
-#             "accessKey": config.access_key
-#         }
-#     })
-#
-#     browser.config.timeout = config.timeout
-#     browser.config.driver = webdriver.Remote(config.remote_url, options=options)
+    config = Config(_env_file=resource_path('.env.local_emulator'))
+
+if Config().context == 'bstack':
+    config = Config(_env_file=(resource_path('.env'), resource_path('.env.bstack')))
+
+
+def run_localy_android():
+    options = UiAutomator2Options()
+    app = resource_path(config.app)
+    options.load_capabilities({
+        'appWaitActivity': config.appWaitActivity,
+        'app': str(app)
+    })
+    print(config.remote_url)
+    browser.config.timeout = config.timeout
+    browser.config.driver = webdriver.Remote(config.remote_url, options=options)
+
+
+def run_bstack_android():
+    options = UiAutomator2Options()
+    options.load_capabilities({
+        'appWaitActivity': config.appWaitActivity,
+        'app': config.app,
+        "deviceName": config.deviceName,
+        "platformVersion": config.platformVersion,
+        'bstack:options': {
+            "projectName": "First Python project",
+            "buildName": "browserstack-build-1",
+            "sessionName": "BStack first_test",
+            "userName": config.user_name,
+            "accessKey": config.access_key
+        }
+    })
+
+    browser.config.timeout = config.timeout
+    browser.config.driver = webdriver.Remote(config.remote_url, options=options)
