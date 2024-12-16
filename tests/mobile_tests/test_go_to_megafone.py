@@ -1,13 +1,18 @@
 import allure
 import pytest
-from allure_commons._allure import step
+from allure_commons.types import Severity
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
 from config import config
 
 
-def test_go_to_megafone():
+@allure.tag('Mobile')
+@allure.feature('Mobile')
+@allure.story('Reissue of the SIM card')
+@allure.title('Page have choices sim cards')
+@allure.severity(Severity.CRITICAL)
+def test_page_have_choices_sim_cards():
     if config.browser_platform == "ios":
         pytest.skip("This test for android")
 

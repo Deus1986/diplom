@@ -1,12 +1,17 @@
 import allure
 import pytest
-from allure_commons._allure import step
+from allure_commons.types import Severity
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
 from config import config
 
 
+@allure.tag('Mobile')
+@allure.feature('Mobile')
+@allure.story('SIM card')
+@allure.title('No access to sim card link')
+@allure.severity(Severity.CRITICAL)
 def test_no_access_to_sim_card_link():
     if config.browser_platform == "ios":
         pytest.skip("This test for android")

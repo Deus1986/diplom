@@ -1,12 +1,17 @@
 import allure
 import pytest
-from allure_commons._allure import step
+from allure_commons.types import Severity
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
 from config import config
 
 
+@allure.tag('Mobile')
+@allure.feature('Mobile')
+@allure.story('Authorization')
+@allure.title('Authorization unregistered user by password')
+@allure.severity(Severity.CRITICAL)
 def test_authorization_unregistered_user_by_password():
     if config.browser_platform == "ios":
         pytest.skip("This test for android")
