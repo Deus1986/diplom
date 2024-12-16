@@ -55,7 +55,7 @@ def run_bstack_android():
         'appWaitActivity': config.appWaitActivity,
         'app': config.app,
         "deviceName": config.deviceName,
-        "platformVersion": config.platform_version,
+        "platformVersion": config.platformVersion,
         'bstack:options': {
             "projectName": "First Python project",
             "buildName": "browserstack-build-1",
