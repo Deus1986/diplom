@@ -30,12 +30,13 @@ def browser_management():
         }
 
         options.capabilities.update(capabilities)
-        options.add_argument(f"window-size={config.window_width},{config.window_height}")
 
         driver = webdriver.Remote(
             command_executor=f"https://{config.login_selenoid}:{config.password_selenoid}"
                              f"@selenoid.autotests.cloud/wd/hub", options=options)
 
+        browser.config.window_width = config.window_width
+        browser.config.window_height = config.window_height
         browser.config.driver = driver
 
     yield
