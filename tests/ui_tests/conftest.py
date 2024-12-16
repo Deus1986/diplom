@@ -1,17 +1,16 @@
-import os
-
 import pytest
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from config import config
+from utils import attach
 
 
 @pytest.fixture()
 def set_browser_window_size():
-    browser.config.window_height = 1600
-    browser.config.window_width = 900
+    browser.config.window_height = config.window_height
+    browser.config.window_width = config.window_width
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -20,9 +19,7 @@ def browser_management():
         browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ['enable-automation'])
-        # options.page_load_strategy = "eager"
-        # options.add_argument('--headless')
-        browser.config.timeout = 8
+        browser.config.timeout = config.timeout
         browser.config.driver_options = options
         browser.config.driver.maximize_window()
 
@@ -30,8 +27,8 @@ def browser_management():
         browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = Options()
         capabilities = {
-            "browserName": "chrome",
-            "browserVersion": '122',
+            "browserName": config.browser_name,
+            "browserVersion": config.browser_version,
             "selenoid:options": {
                 "enableVNC": True,
                 "enableVideo": True
@@ -48,4 +45,8 @@ def browser_management():
         browser.config.driver = driver
 
     yield
+    attach.allure_screenshot()
+    attach.allure_page_source()
+    attach.add_logs()
+    attach.add_video_web()
     browser.quit()

@@ -8,6 +8,9 @@ from data.resources import resource_path
 from tests.api_tests.api_helper.requests import add_product_to_cart
 
 
+@allure.tag('API')
+@allure.feature('API')
+@allure.story('Add product to cart')
 def test_add_product_to_cart():
     response = add_product_to_cart(tablet_samsung.good_id, tablet_samsung.amount)
     response_json = response.json()

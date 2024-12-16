@@ -19,5 +19,6 @@ def test_no_access_to_sim_card_link():
         browser.element((AppiumBy.XPATH, '//android.widget.Button[@text="Нет доступа к SIM-карте"]')).click()
 
     with step('No access to sim card link page should have text "Обратитесь в поддержку по номеру:"'):
-        browser.element((AppiumBy.XPATH, '//android.widget.TextView[@text="Обратитесь в поддержку по номеру:"]')).should(have.text('Обратитесь в поддержку по номеру:'))
-
+        browser.element(
+            (AppiumBy.XPATH, '//android.widget.TextView[@text="Обратитесь в поддержку по номеру:"]')).should(
+            have.text('Обратитесь в поддержку по номеру:'))

@@ -21,7 +21,20 @@ def allure_page_source():
     )
 
 
-def allure_video(session_id):
+def add_logs():
+    log = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
+    allure.attach(log, 'browser_logs', allure.attachment_type.TEXT, '.log')
+
+
+def add_video_web():
+    video_url = "https://selenoid.autotests.cloud/video/" + browser.driver.session_id + ".mp4"
+    html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
+           + video_url \
+           + "' type='video/mp4'></video></body></html>"
+    allure.attach(html, 'video_' + browser.driver.session_id, allure.attachment_type.HTML, '.html')
+
+
+def allure_mobile_video(session_id):
     browser_stack_session = requests.get(
         f'https://api-cloud.browserstack.com/app-automate/sessions/{session_id}.json',
         auth=(config.user_name, config.access_key)).json()

@@ -5,7 +5,18 @@ import requests
 from allure_commons._allure import step
 from allure_commons.types import AttachmentType
 
-from config import config
+api_base_url_spb_shop = 'https://spb.shop.megafon.ru/'
+api_base_url_api_shop = 'https://api.shop.megafon.ru/'
+
+
+def get_url_spb_shop(request_part):
+    request = api_base_url_spb_shop + request_part
+    return request
+
+
+def get_url_api_shop(request_part):
+    request = api_base_url_api_shop + request_part
+    return request
 
 
 def megafon_shop_api(method, url, **kwargs):
@@ -17,6 +28,7 @@ def megafon_shop_api(method, url, **kwargs):
             attachment_type=AttachmentType.TEXT,
             extension="txt")
         logging.info(response.status_code)
+        logging.info(response.url)
     return response
 
 
@@ -35,8 +47,8 @@ def add_product_to_cart(good_id, quantity):
             }
         ]
     }
-    response = megafon_shop_api("POST", config.api_base_url_spb_shop + 'public-api/checkout/v2/batch/order',
-                                json=payload)
+    url = get_url_spb_shop('public-api/checkout/v2/batch/order')
+    response = megafon_shop_api("POST", url, json=payload)
     return response
 
 
@@ -51,10 +63,8 @@ def change_quantity_of_product(ejwt, order_id, client_id, city_id, quantity):
     headers = {
         "cookie": f"_ejwt = {ejwt}"
     }
-    response = megafon_shop_api("PATCH",
-                                config.api_base_url_spb_shop + f'public-api/checkout/v2/order/{order_id}'
-                                                               f'/basket/1/quantity',
-                                json=payload, params=params, headers=headers)
+    url = get_url_spb_shop(f'public-api/checkout/v2/order/{order_id}/basket/1/quantity')
+    response = megafon_shop_api("PATCH", url, json=payload, params=params, headers=headers)
     return response
 
 
@@ -66,15 +76,14 @@ def delete_order(ejwt, order_id, city_id, client_id):
     headers = {
         "cookie": f"_ejwt = {ejwt}"
     }
-    response = megafon_shop_api("DELETE",
-                                config.api_base_url_spb_shop + f'public-api/checkout/v2/order/{order_id}'
-                                                               f'/basket/1/remove',
-                                params=params, headers=headers)
+    url = get_url_spb_shop(f'public-api/checkout/v2/order/{order_id}/basket/1/remove')
+    response = megafon_shop_api("DELETE", url, params=params, headers=headers)
     return response
 
 
 def get_info_about_storage(store_code):
-    response = megafon_shop_api("GET", config.api_base_url_api_shop + f'storelocator/get-branch/{store_code}')
+    url = get_url_api_shop(f'storelocator/get-branch/{store_code}')
+    response = megafon_shop_api("GET", url)
     return response
 
 
@@ -86,6 +95,6 @@ def get_info_about_stores_for_product(eshop_id, region_id, good_id):
         "goodId/[]": good_id,
         "withCache": 1
     }
-
-    response = megafon_shop_api("GET", config.api_base_url_api_shop + 'storelocator', params=params)
+    url = get_url_api_shop('storelocator')
+    response = megafon_shop_api("GET", url, params=params)
     return response

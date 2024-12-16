@@ -8,6 +8,9 @@ from data.resources import resource_path
 from tests.api_tests.api_helper.requests import get_info_about_stores_for_product
 
 
+@allure.tag('API')
+@allure.feature('API')
+@allure.story('Get info about stores for product')
 def test_get_info_about_stores_for_product():
     response = get_info_about_stores_for_product(st_petersburg_store.eshop_id, st_petersburg_store.region_id,
                                                  tablet_samsung.good_id)

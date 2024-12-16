@@ -8,6 +8,9 @@ from data.resources import resource_path
 from tests.api_tests.api_helper.requests import add_product_to_cart, delete_order
 
 
+@allure.tag('API')
+@allure.feature('API')
+@allure.story('Delete order')
 def test_delete_order():
     response_add_product_to_cart = add_product_to_cart(tablet_samsung.good_id, tablet_samsung.amount)
     cookie = response_add_product_to_cart.cookies.get('_ejwt')

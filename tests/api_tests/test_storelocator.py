@@ -7,6 +7,9 @@ from data.resources import resource_path
 from tests.api_tests.api_helper.requests import *
 
 
+@allure.tag('API')
+@allure.feature('API')
+@allure.story('Storelocator')
 def test_storelocator():
     response = get_info_about_storage(st_petersburg_store.branch_id)
     response_json = response.json()

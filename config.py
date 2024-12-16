@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Literal
 
 from appium import webdriver
@@ -10,12 +9,12 @@ from data.resources import resource_path
 
 
 class Config(BaseSettings):
-    api_base_url_spb_shop: str = 'https://spb.shop.megafon.ru/'
-    api_base_url_api_shop: str = 'https://api.shop.megafon.ru/'
     remote_url: str = ''
     browser_platform: Literal['android', 'ios'] = 'android'
     platformVersion: str = ''
+    browser_name: str = 'chrome'
     timeout: float = 8.0
+    browser_version: str = '122'
     user_name: str = ''
     access_key: str = ''
     login_selenoid: str = ''
@@ -25,6 +24,8 @@ class Config(BaseSettings):
     app: str = ''
     context: str = 'bstack'
     web_context: Literal['local', 'remote'] = 'remote'
+    window_height: int = 1600
+    window_width: int = 900
 
 
 if Config().context == 'local':
@@ -54,7 +55,7 @@ def run_bstack_android():
         'appWaitActivity': config.appWaitActivity,
         'app': config.app,
         "deviceName": config.deviceName,
-        "platformVersion": config.platformVersion,
+        "platformVersion": config.platform_version,
         'bstack:options': {
             "projectName": "First Python project",
             "buildName": "browserstack-build-1",
