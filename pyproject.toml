@@ -17,6 +17,7 @@ pydantic-settings = "2.7.0"
 jsonschema = "4.23.0"
 appium-python-client = "4.4.0"
 python-dotenv = "1.0.1"
+pathlib = "1.0.1"
 
 
 [build-system]

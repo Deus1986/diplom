@@ -21,7 +21,7 @@ def allure_page_source():
     )
 
 
-def add_logs():
+def allure_add_logs():
     log = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
     allure.attach(log, 'browser_logs', allure.attachment_type.TEXT, '.log')
 

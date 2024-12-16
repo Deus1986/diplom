@@ -22,7 +22,7 @@ class Config(BaseSettings):
     deviceName: str = ''
     appWaitActivity: str = ''
     app: str = ''
-    context: str = 'bstack'
+    context: str = 'local'
     web_context: Literal['local', 'remote'] = 'remote'
     window_height: int = 900
     window_width: int = 1600

@@ -20,10 +20,11 @@ def mobile_management():
 
     allure_screenshot()
     allure_page_source()
+    allure_add_logs()
 
     session_id = browser.driver.session_id
 
     browser.quit()
 
     if config.context == 'bstack':
-        allure_video(session_id)
+        allure_mobile_video(session_id)

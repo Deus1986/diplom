@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from config import config
+from data.resources import resource_path
 from utils import attach
 
 
@@ -42,6 +43,6 @@ def browser_management():
     yield
     attach.allure_screenshot()
     attach.allure_page_source()
-    attach.add_logs()
+    attach.allure_add_logs()
     attach.add_video_web()
     browser.quit()
