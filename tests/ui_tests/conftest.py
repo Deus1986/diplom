@@ -7,12 +7,6 @@ from config import config
 from utils import attach
 
 
-@pytest.fixture()
-def set_browser_window_size():
-    browser.config.window_height = config.window_height
-    browser.config.window_width = config.window_width
-
-
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
     if config.web_context == 'local':
@@ -36,7 +30,7 @@ def browser_management():
         }
 
         options.capabilities.update(capabilities)
-        options.add_argument("window-size=1920,1080")
+        options.add_argument(f"window-size={config.window_width},{config.window_height}")
 
         driver = webdriver.Remote(
             command_executor=f"https://{config.login_selenoid}:{config.password_selenoid}"
