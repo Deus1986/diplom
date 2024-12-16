@@ -1,3 +1,4 @@
+import allure
 import pytest
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
@@ -10,12 +11,12 @@ def test_go_to_megafone():
     if config.browser_platform == "ios":
         pytest.skip("This test for android")
 
-    with step('Verify main page opened'):
+    with allure.step('Verify main page opened'):
         browser.element(
             (AppiumBy.XPATH, '//android.view.View[@text="Добро пожаловать в Личный кабинет МегаФона "]')).should(
             have.text('Добро пожаловать в Личный кабинет МегаФона'))
 
-    with step('Click go to megafone'):
+    with allure.step('Click go to megafone'):
         if config.context == "bstack":
             browser.element((AppiumBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/'
                                              'android.widget.FrameLayout/android.widget.LinearLayout/android.widget.'
@@ -28,7 +29,7 @@ def test_go_to_megafone():
                              '//android.view.View[@resource-id="root"]/android.view.View/android.view.View/'
                              'android.view.View/android.view.View[3]')).click()
 
-    with (step('Choose plastic sim card')):
+    with allure.step('Choose plastic sim card'):
         if config.context == "bstack":
             browser.element((AppiumBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/'
                                              'android.widget.FrameLayout/android.widget.LinearLayout/android.widget.'

@@ -24,8 +24,8 @@ class Config(BaseSettings):
     app: str = ''
     context: str = 'bstack'
     web_context: Literal['local', 'remote'] = 'remote'
-    window_height: int = 1600
-    window_width: int = 900
+    window_height: int = 900
+    window_width: int = 1600
 
 
 if Config().context == 'local':
