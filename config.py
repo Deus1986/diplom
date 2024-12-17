@@ -22,20 +22,19 @@ class Config(BaseSettings):
     deviceName: str = ''
     appWaitActivity: str = ''
     app: str = ''
-    context: str = 'bstack'
-    web_context: Literal['local', 'remote'] = 'remote'
+    context: Literal['local_web', 'remote_web', 'bstack', 'local_mobile'] = 'remote_web'
     window_height: int = 900
     window_width: int = 1600
 
 
-if Config().context == 'local':
+if Config().context == 'local_mobile':
     config = Config(_env_file=resource_path('.env.local_emulator'))
 
 if Config().context == 'bstack':
     config = Config(_env_file=(resource_path('.env'), resource_path('.env.bstack')))
 
-if Config().web_context == 'remote':
-    config = Config(_env_file=(resource_path('.env')))
+if Config().context == 'remote_web':
+    config = Config(_env_file=resource_path('.env'))
 
 
 def run_localy_android():
@@ -64,6 +63,5 @@ def run_bstack_android():
             "accessKey": config.access_key
         }
     })
-
     browser.config.timeout = config.timeout
     browser.config.driver = webdriver.Remote(config.remote_url, options=options)

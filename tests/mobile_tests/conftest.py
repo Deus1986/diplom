@@ -8,7 +8,7 @@ from utils.attach import *
 
 @pytest.fixture(scope='function', autouse=True)
 def mobile_management():
-    if config.context == 'local':
+    if config.context == 'local_mobile':
         run_localy_android()
 
     if config.context == 'bstack':
@@ -20,7 +20,6 @@ def mobile_management():
 
     allure_screenshot()
     allure_page_source()
-    allure_add_logs()
 
     session_id = browser.driver.session_id
 

@@ -10,7 +10,7 @@ from utils import attach
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    if config.web_context == 'local':
+    if config.context == 'local_web':
         browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ['enable-automation'])
@@ -18,7 +18,7 @@ def browser_management():
         browser.config.driver_options = options
         browser.config.driver.maximize_window()
 
-    if config.web_context == 'remote':
+    if config.context == 'remote_web':
         browser.config.base_url = "https://spb.shop.megafon.ru/"
         options = Options()
         capabilities = {
