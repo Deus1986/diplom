@@ -6,6 +6,7 @@
 <!-- Технологии -->
 
 ### Используемые технологии
+
 <p  align="center">
    <code><img width="5%" title="Python" src="data/images/python.png"></code>
   <code><img width="5%" title="Pytest" src="data/images/pytest.png"></code>
@@ -25,6 +26,7 @@
 
 <!-- Тесты -->
 UI:
+
 * ✅ Add product to cart
 * ✅ Delete product from cart
 * ✅ Filter smartphone by name iphone
@@ -34,17 +36,18 @@ UI:
 * ✅ Search by name iphone
 
 Mobile:
+
 * ✅ No access to sim card link
 * ✅ Page have choices sim cards
 * ✅ Authorization unregistered user by password
 
- API:
+API:
+
 * ✅ Delete order
 * ✅ Add product to cart
 * ✅ Get info about stores for product
 * ✅ Storelocator
 * ✅ Update quantity of product
-
 
 <!-- Jenkins -->
 
@@ -52,12 +55,12 @@ Mobile:
 
 ### [Задача в jenkins](https://jenkins.autotests.cloud/job/hw_diplom_Vladimir/)
 
-
 <!-- Allure report -->
 
 ### <img width="3%" title="Allure Report" src="data/images/allure_report.png"> Allure report
 
 ##### Результаты выполнения тестова можно посмотреть в Allure-отчете
+
 ![This is an image](data/images/Allure_ui.png)
 ![This is an image](data/images/Allure_api.png)
 ![This is an image](data/images/Allure_mobile.png)
@@ -75,6 +78,7 @@ Mobile:
 <!-- Telegram -->
 
 ### <img width="3%" title="Telegram" src="data/images/tg.png"> Оповещения в Telegram
+
 ##### После выполнения тестов, в Telegram bot приходит сообщение с графиком и информацией о тестовом прогоне.
 
 ![This is an image](data/images/TG_ui.png)

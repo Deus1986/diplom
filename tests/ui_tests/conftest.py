@@ -4,7 +4,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from config import config
-from data.resources import resource_path
 from utils import attach
 
 
