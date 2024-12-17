@@ -10,8 +10,9 @@ from utils import attach
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
+    base_url = "https://spb.shop.megafon.ru/"
     if config.context == 'local_web':
-        browser.config.base_url = "https://spb.shop.megafon.ru/"
+        browser.config.base_url = base_url
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ['enable-automation'])
         browser.config.timeout = config.timeout
@@ -19,7 +20,7 @@ def browser_management():
         browser.config.driver.maximize_window()
 
     if config.context == 'remote_web':
-        browser.config.base_url = "https://spb.shop.megafon.ru/"
+        browser.config.base_url = base_url
         options = Options()
         capabilities = {
             "browserName": config.browser_name,
