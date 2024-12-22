@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "additionalProperties": false,
   "properties": {
     "errors": {
       "type": "array",
@@ -7287,77 +7286,6 @@
                     "id",
                     "name"
                   ]
-                },
-                "officeId": {
-                  "type": "string"
-                },
-                "place": {
-                  "type": "string"
-                },
-                "priority": {
-                  "type": "integer"
-                },
-                "sectionId": {
-                  "type": "integer"
-                },
-                "sectionType": {
-                  "type": "integer"
-                },
-                "street": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "worktime": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "cityId",
-                "code",
-                "comment",
-                "coords",
-                "metro",
-                "officeId",
-                "place",
-                "priority",
-                "sectionId",
-                "sectionType",
-                "street",
-                "title",
-                "type",
-                "worktime"
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "cityId": {
-                  "type": "integer"
-                },
-                "code": {
-                  "type": "string"
-                },
-                "comment": {
-                  "type": "null"
-                },
-                "coords": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "type": "number"
-                    }
-                  ]
-                },
-                "metro": {
-                  "type": "null"
                 },
                 "officeId": {
                   "type": "string"

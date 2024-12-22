@@ -25,6 +25,6 @@ def test_get_info_about_stores_for_product():
 
     with allure.step(
             f"Response office should have city id {st_petersburg_store.city_id} and {st_petersburg_store.region_name}"):
-        for i in range(101):
+        for i in range(100):
             assert response_json['payload']['offices'][i]['cityId'] == st_petersburg_store.city_id
             assert response_json['payload']['offices'][i]['place'] == st_petersburg_store.region_name

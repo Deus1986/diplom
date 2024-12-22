@@ -22,7 +22,7 @@ class Config(BaseSettings):
     deviceName: str = ''
     appWaitActivity: str = ''
     app: str = ''
-    context: Literal['local_web', 'remote_web', 'bstack', 'local_mobile'] = 'local_mobile'
+    context: Literal['local_web', 'remote_web', 'bstack', 'local_mobile'] = 'local_web'
     window_height: int = 900
     window_width: int = 1600
 
@@ -35,6 +35,9 @@ if Config().context == 'bstack':
 
 if Config().context == 'remote_web':
     config = Config(_env_file=resource_path('.env'))
+
+if Config().context == 'local_web':
+    config = Config()
 
 
 def run_localy_android():
